@@ -25,5 +25,5 @@ golang-stl-format-converter
 └── README.md
 ```
 
-> For this project, there will only be a design brief. This is because this poses as an individual solution and cannot be used in a comparison of solutions, as the purpose of the decision matrix.
+> **Note on Decision Matrix**: Omitted to prioritize implementation. As this is a focused utility with a defined tech stack (Go), a Design Brief is sufficient to guide development without redundant cross-solution comparisons.
 
