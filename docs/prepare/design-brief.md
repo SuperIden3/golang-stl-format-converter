@@ -3,18 +3,32 @@
 - **Client**: Minor 3D Modeling Software Company
 - **Target Consumer**: 3D Modelers and Designers
 - **Designer(s)**: Iden Gomes
-- **Problem Statement**: The *Target Consumers* are adept in producing unique 3D models, but they sometimes they have to deal with the bloated slowness of STL files in ASCII format.
-- **Design Statement**: Create a converter written in Golang that can convert STL files between ASCII and BINARY formats.
+- **Problem Statement**: ASCII STL files are significantly larger and slower to process than binary STL files, which negatively impacts storage, transfer speed, and performance in 3D workflows.
+- **Design Statement**: Create a fast, lightweight CLI-based converter written in Go that converts STL files between ASCII and binary formats efficiently and reliably.
 
 ## Criteria
 
-- **Performance**: The converter should be fast and efficient.
-- **Usability**: The converter should be easy to use and understand.
-- **Portability**: The converter should be portable and can be used on different operating systems.
-- **Compatibility**: The converter should be compatible with different STL file formats and should be able to handle different file sizes.
+- **Performance**: Converts files faster than typical parsing tools (under 1-2 seconds for 1-10 MB files)
+- **Usability**: Supports simple CLI usage (e.g., `stlconv input.stl output.stl`)
+- **Portability**: Builds and runs on Windows, Linux, and macOS.
+- **Compatibility**: Handles both ASCII and binary STL specs correctly, including edge cases.
 
 ## Constraints
 
-- **Timeframe**: Before 4/27.
-- **Asynchronous**: The converter should be able to handle converting multiple STL files at the same time.
+- **Timeframe**: Before End of April.
+- **Concurrency**: Should support processing multiple files simultaneously using goroutines.
+
+## Deliverables
+
+- CLI executable
+- Source code (Go)
+- Basic documentation (README)
+- Example input/output files
+
+## Definition of Done
+
+- Successfully converts ASCII to Binary STL files (and vice versa) without data corruption.
+- Output files load correctly in standard 3D software.
+- Handles small and large files without crashing.
+- CLI behaves as expected for valid and invalid inputs.
 
