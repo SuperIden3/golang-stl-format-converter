@@ -16,8 +16,18 @@ const (
 	END_SOLID
 )
 
-func TokenMap() map[string]Token {
-	return map[string]Token {
+type NextToken_Return struct {
+	Token Token
+	Optional_SolidName SolidName
+	Optional_Vector Vector
+}
+
+type Tokenizer interface {
+	NextToken() (NextToken_Return, error)
+}
+
+func TokenMappings() (map[string]Token, map[Token]string) {
+	return m := map[string]Token {
 		"solid": SOLID,
 		"facet": FACET,
 		"normal": NORMAL,
@@ -26,10 +36,23 @@ func TokenMap() map[string]Token {
 		"endloop": END_LOOP,
 		"endfacet": END_FACET,
 		"endsolid": END_SOLID,
+	}, map[Token]string {
+		SOLID: "solid",
+		FACET: "facet",
+		NORMAL: "normal",
+		OUTER_LOOP: "outer",
+		VERTEX: "vertex",
+		END_LOOP: "endloop",
+		END_FACET: "endfacet",
+		END_SOLID: "endsolid",
 	}
 }
 
+func TokenList() string {
+	return []string{ "ILLEGAL", "EOF", "SOLID", "NUMBER", "FACET",  "NORMAL", "OUTER_LOOP", "VERTEX", "END_LOOP",  "END_FACET", "END_SOLID", }
+}
+
 func (t Token) String() string {
-	return []string{ "ILLEGAL", "EOF", "SOLID", "NUMBER", "FACET",  "NORMAL", "OUTER_LOOP", "VERTEX", "END_LOOP",  "END_FACET", "END_SOLID", }[t]
+	return TokenList()[t]
 }
 
