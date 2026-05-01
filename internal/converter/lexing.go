@@ -3,7 +3,6 @@ package converter
 import (
 	"os"
 	"bufio"
-	"strings"
 )
 
 type Lexer struct {
@@ -15,4 +14,3 @@ func NewLexer(file *os.File) *Lexer {
 		scanner: bufio.NewScanner(file),
 	}
 }
-

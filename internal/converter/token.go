@@ -27,7 +27,7 @@ type Tokenizer interface {
 }
 
 func TokenMappings() (map[string]Token, map[Token]string) {
-	return m := map[string]Token {
+	return map[string]Token{
 		"solid": SOLID,
 		"facet": FACET,
 		"normal": NORMAL,
@@ -36,7 +36,7 @@ func TokenMappings() (map[string]Token, map[Token]string) {
 		"endloop": END_LOOP,
 		"endfacet": END_FACET,
 		"endsolid": END_SOLID,
-	}, map[Token]string {
+	}, map[Token]string{
 		SOLID: "solid",
 		FACET: "facet",
 		NORMAL: "normal",
@@ -48,7 +48,7 @@ func TokenMappings() (map[string]Token, map[Token]string) {
 	}
 }
 
-func TokenList() string {
+func TokenList() []string {
 	return []string{ "ILLEGAL", "EOF", "SOLID", "NUMBER", "FACET",  "NORMAL", "OUTER_LOOP", "VERTEX", "END_LOOP",  "END_FACET", "END_SOLID", }
 }
 

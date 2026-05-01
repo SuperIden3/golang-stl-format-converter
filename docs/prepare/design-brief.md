@@ -15,7 +15,7 @@
 
 ## Constraints
 
-- **Timeframe**: Before End of April.
+- **Timeframe**: 5/10/2026.
 - **Concurrency**: Should support processing multiple files simultaneously using goroutines.
 
 ## Deliverables
