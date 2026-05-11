@@ -22,10 +22,6 @@ type NextToken_Return struct {
 	Optional_Vector Vector
 }
 
-type Tokenizer interface {
-	NextToken() (NextToken_Return, error)
-}
-
 func TokenMappings() (map[string]Token, map[Token]string) {
 	return map[string]Token{
 		"solid": SOLID,
