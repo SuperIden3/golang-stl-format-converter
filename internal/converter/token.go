@@ -48,7 +48,19 @@ func TokenList() []string {
 	return []string{ "ILLEGAL", "EOF", "SOLID", "NUMBER", "FACET",  "NORMAL", "OUTER_LOOP", "VERTEX", "END_LOOP",  "END_FACET", "END_SOLID", }
 }
 
-func (t Token) String() string {
-	return TokenList()[t]
+func TokenFromString(s string) (Token, error) {
+	mapping, _ := TokenMappings()
+	if token, ok := mapping[s]; ok {
+		return token, nil
+	}
+	return ILLEGAL, fmt.Errorf("Invalid token: %s", s)
+}
+
+func (t Token) String() (string, error) {
+	_, reverseMapping := TokenMappings()
+	if str, ok := reverseMapping[t]; ok {
+		return str, nil
+	}
+	return "ILLEGAL", fmt.Errorf("Invalid token: %d", t)
 }
 
